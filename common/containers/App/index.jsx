@@ -33,17 +33,15 @@ class App extends Component {
         } = this.props;
 
 
-
         return (
             <div>
                 <Header/>
-
-                <GApp>
+                <GApp style={{marginBottom: '50px'}}>
                     <div style={{marginTop: '20px'}}>
-                    { children}
+                        { children}
                     </div>
-                    <Footer/>
                 </GApp>
+                <Footer/>
             </div>
         )
     }
