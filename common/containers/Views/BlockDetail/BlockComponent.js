@@ -27,7 +27,7 @@ export default class BlockComponent extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 {
                     this.state.block && <div className="column">
                         <div className="columns">
