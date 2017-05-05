@@ -11,14 +11,13 @@ export default class Footer extends Component {
 
     render() {
         return (
-            <div className="column">
+            <div className="container column">
                 <hr className="is-desktop"/>
                 <GFooter justify='between'>
                     <Box direction='row'
-                         align='center'
                          pad={{"between": "medium"}}>
                         <Paragraph margin='none'>
-                            © 2017 MoneroChain
+                            {'                     '} © 2017 MoneroChain
                         </Paragraph>
                         <a>
                             <i className="fa fa-github" aria-hidden="true"></i> Fork on GitHub</a>
