@@ -42,6 +42,16 @@ export default class TransactionDetailComponent extends Component {
                     },
                     minWidth: 40
                 },
+                mixins: {
+                    render: (row) => {
+                        return (
+                            <div>
+                                {row.row.inputs ? row.row.inputs.length : '0'}
+                            </div>
+                        )
+                    },
+                    minWidth: 40
+                },
                 outputs: {
                     render: (row) => {
                         return (
@@ -62,13 +72,27 @@ export default class TransactionDetailComponent extends Component {
                 }
             }
 
+             const otherCustomRender = {
+                mixins: {
+                    render: (row) => {
+                        return (
+                            <div>
+                                {row.row.mixins ? row.row.mixins.length : '0'}
+                            </div>
+                        )
+                    },
+                    minWidth: 40
+                }
+
+            }
+
             nextState.otherColumns = buildColumnFromObject(nextState.data, [], customRender)
             nextState.otherData = makeDataWithExcludedPropertiesAndFilterBasedOnProperties([nextState.data])
 
-            nextState['outputsColumns'] = buildColumnFromObject(nextState.data.outputs[0])
+            nextState['outputsColumns'] = buildColumnFromObject(nextState.data.outputs[0], [], otherCustomRender)
             nextState['outputsData'] = makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.data.outputs)
 
-            nextState['inputsColumns'] = nextState.data.inputs ? buildColumnFromObject(nextState.data.inputs[0]) : []
+            nextState['inputsColumns'] = nextState.data.inputs ? buildColumnFromObject(nextState.data.inputs[0], [], otherCustomRender) : []
             nextState['inputsData'] = nextState.data.inputs ? makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.data.inputs) : []
 
             this.setState(nextState)
