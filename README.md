@@ -1,6 +1,6 @@
 # MoneroChain
 
-![screenshot](http://imgur.com/a/BBIMd)
+![screenshot](http://imgur.com/a/BBIMd.png)
 
 #### Run:
 
