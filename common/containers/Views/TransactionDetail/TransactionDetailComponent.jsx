@@ -122,7 +122,10 @@ export default class TransactionDetailComponent extends Component {
                             <div className="columns">
                                 <div className="column is-half">
                                     <TransactionInfo
-                                        keysOfProperties={["block_height", "coinbase", "confirmations", "current_height", "extra", "mixin", "timestamp_utc", "payment_id", "payment_id8"]}
+                                        keysOfProperties={["confirmations"]}
+                                        property={this.state.data}/>
+                                    <TransactionInfo
+                                        keysOfProperties={["block_height", "coinbase", "current_height", "extra", "mixin", "timestamp_utc", "payment_id", "payment_id8"]}
                                         property={this.state.data}/>
                                 </div>
                                 <div className="column is-half">
