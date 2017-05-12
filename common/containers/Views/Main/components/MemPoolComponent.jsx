@@ -16,13 +16,15 @@ export default class MemPoolComponent extends Component {
         super(props)
         this.state = {
             mempool: [],
+            totalMempool: 0,
             data: []
         }
     }
 
     componentWillMount() {
         let nextState = this.state;
-        nextState.mempool = this.props.mempool
+        nextState.mempool = this.props.mempool.txs
+        nextState.totalMempool = this.props.mempool.txs_no;
         // determine if we should set data to null
         if (nextState.mempool ? nextState.mempool.length === 0 : true) {
             nextState.columns = []
@@ -101,7 +103,11 @@ export default class MemPoolComponent extends Component {
             <div className="column">
                 {
                     this.state.data.length > 0 ? <div>
-                        <h5 style={{marginBottom: '2px '}}><b>MemPool ({this.state.data.length})</b></h5>
+                        { this.state.totalMemPool > 10 ?
+                            <h5 style={{marginBottom: '2px '}}><b>MemPool (showing {this.state.data.length} of
+                                total {this.state.totalMempool})</b></h5> :
+
+                            <h5 style={{marginBottom: '2px '}}><b>MemPool ({this.state.data.length})</b></h5> }
                         <ReactTable
                             className='-striped -highlight'
                             showPagination={false}
