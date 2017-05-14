@@ -9,7 +9,7 @@ export const history = getHistory()
 
 
 const PageNotFound = () => (
-    <section className="row" style={{marginTop: "125px"}}>
+    <section className="row" style={{marginBottom: '400px'}}>
         <h1>Nothing here!</h1>
     </section>
 );
