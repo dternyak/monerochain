@@ -1,5 +1,8 @@
 # MoneroChain
 
+<img src="http://imgur.com/a/BBIMd.png">
+
+
 #### Run:
 
 ```bash
