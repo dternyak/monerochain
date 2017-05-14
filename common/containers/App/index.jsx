@@ -10,35 +10,20 @@ class App extends Component {
     }
 
     static propTypes = {
-        children: PropTypes.node.isRequired,
-        location: PropTypes.object,
-        handleWindowResize: PropTypes.func,
-
-        router: PropTypes.object,
-        isMobile: PropTypes.bool,
+        children: PropTypes.node.isRequired
     }
-
-
-    componentWillMount() {
-        let {handleWindowResize} = this.props
-        window.addEventListener('resize', handleWindowResize)
-    }
-
 
     render() {
         let {
-            children,
-            // APP
-
+            children
         } = this.props;
-
 
         return (
             <div>
                 <Header/>
                 <GApp style={{marginBottom: '50px'}}>
                     <div style={{marginTop: '20px'}}>
-                        { children}
+                        {children}
                     </div>
                 </GApp>
                 <Footer/>
@@ -53,7 +38,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {}
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
