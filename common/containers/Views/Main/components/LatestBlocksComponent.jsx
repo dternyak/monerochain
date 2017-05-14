@@ -23,11 +23,7 @@ export default class LatestBlocksComponent extends Component {
     }
 
     handlePageResults(data) {
-        const excludedFields = ["coinbase", "timestamp"]
         let nextState = this.state;
-        console.log(data)
-        nextState.latestBlocks = data.data.data.blocks
-        nextState.totalPages = data.data.data.total_page_no;
         const customRender = {
             height: {
                 render: (row) => {
@@ -76,20 +72,22 @@ export default class LatestBlocksComponent extends Component {
                 }
             }
         }
+
+        const excludedFields = ["coinbase", "timestamp"]
+        nextState.latestBlocks = data.data.data.blocks
+        nextState.totalPages = data.data.data.total_page_no;
         nextState.columns = buildColumnFromObject(nextState.latestBlocks[0], excludedFields, customRender)
         nextState.data = makeDataWithExcludedPropertiesAndFilterBasedOnProperties(nextState.latestBlocks, excludedFields)
         nextState.loading = false;
         nextState.currentPage = data.data.data.page
         nextState.tableLoading = false
         this.setState(nextState)
-
     }
 
     componentWillMount() {
         pageToBlock()
             .then((data) => this.handlePageResults(data));
     }
-
 
     render() {
         return (
@@ -127,7 +125,8 @@ export default class LatestBlocksComponent extends Component {
                             borderColor="white"
                             borderWidth={10}
                             borderRadius="80%"
-                        /></div>
+                        />
+                    </div>
                 }
             </div>
         )

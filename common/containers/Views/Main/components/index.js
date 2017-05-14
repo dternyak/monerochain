@@ -18,13 +18,12 @@ export default class MainComponent extends Component {
     componentDidMount() {
         getMemPool()
             .then((data) => {
-                    let nextState = this.state;
-                    nextState['mempool'] = data.data.data
-                    nextState['memPoolExists'] = true
-                    nextState['loading'] = false
-                    this.setState(nextState)
-                }
-            );
+                let nextState = this.state;
+                nextState.mempool = data.data.data
+                nextState.memPoolExists = true
+                nextState.loading = false
+                this.setState(nextState)
+            });
     }
 
 
