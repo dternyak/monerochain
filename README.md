@@ -1,6 +1,6 @@
 # MoneroChain
 
-![MoneroChain](http://imgur.com/a/iOTIG "MoneroChain")
+![MoneroChain](http://imgur.com/Urs1Jgi.png "MoneroChain")
 
 
 #### Run:
