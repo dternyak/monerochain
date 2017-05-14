@@ -17,23 +17,11 @@ export default class Footer extends Component {
                     <Box direction='row'
                          pad={{"between": "medium"}}>
                         <Paragraph margin='none'>
-                            {'                     '} © 2017 MoneroChain
+                            © 2017 MoneroChain
                         </Paragraph>
-                        <a>
-                            <i className="fa fa-github" aria-hidden="true"></i> Fork on GitHub</a>
-                        {/*<Menu direction='row'*/}
-                        {/*size='small'*/}
-                        {/*dropAlign={{"right": "right"}}>*/}
-                        {/*<Anchor href='#'>*/}
-                        {/*Support*/}
-                        {/*</Anchor>*/}
-                        {/*<Anchor href='#'>*/}
-                        {/*Contact*/}
-                        {/*</Anchor>*/}
-                        {/*<Anchor href='#'>*/}
-                        {/*About*/}
-                        {/*</Anchor>*/}
-                        {/*</Menu>*/}
+                        <a href="https://github.com/dternyak/monerochain.git" target="_blank">
+                            <i className="fa fa-github" aria-hidden="true"></i> Source on GitHub
+                        </a>
                     </Box>
                 </GFooter>
             </div>
