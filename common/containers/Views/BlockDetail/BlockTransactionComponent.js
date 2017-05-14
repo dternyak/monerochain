@@ -8,7 +8,6 @@ import {
     formatBytes,
     makeDataWithExcludedPropertiesAndIncludeBasedOnProperties
 } from "utils/tableHelpers";
-
 import {Link} from "react-router";
 
 const coinbaseExcludes = ["coinbase", "xmr_inputs", 'payment_id', 'payment_id8', 'mixin', 'tx_fee']

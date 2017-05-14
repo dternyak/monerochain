@@ -1,11 +1,8 @@
 import React, {Component} from "react";
 import {searchBlockchain} from "api/api";
 import BlockTransactionComponent from "./BlockTransactionComponent";
-import Loading from "react-loading";
 import ActivityIndicator from "react-activity-indicator";
-import {
-    formatBytes,
-} from "utils/tableHelpers";
+import {formatBytes} from "utils/tableHelpers";
 
 export default class BlockComponent extends Component {
     constructor(props) {
@@ -19,8 +16,8 @@ export default class BlockComponent extends Component {
     componentDidMount() {
         searchBlockchain(this.props.routeParams.height).then((data) => {
             let nextState = this.state;
-            nextState['block'] = data.data.data
-            nextState['loading'] = false
+            nextState.block = data.data.data
+            nextState.loading = false
             this.setState(nextState)
         })
     }
@@ -32,9 +29,12 @@ export default class BlockComponent extends Component {
                     this.state.block && <div className="column">
                         <div className="columns">
                             <div className="column">
-                                <h5 style={{marginBottom: '2px', wordWrap: 'break-word'}}><b>hash</b>: {this.state.block.hash}</h5>
-                                <h5 style={{marginBottom: '2px'}}><b>block_height</b>: {this.state.block.block_height}</h5>
-                                <h5 style={{marginBottom: '2px'}}><b>timestamp_utc</b>: {this.state.block.timestamp_utc}</h5>
+                                <h5 style={{marginBottom: '2px', wordWrap: 'break-word'}}>
+                                    <b>hash</b>: {this.state.block.hash}</h5>
+                                <h5 style={{marginBottom: '2px'}}><b>block_height</b>: {this.state.block.block_height}
+                                </h5>
+                                <h5 style={{marginBottom: '2px'}}><b>timestamp_utc</b>: {this.state.block.timestamp_utc}
+                                </h5>
                                 <h5 style={{marginBottom: '2px'}}><b>size</b>: {formatBytes(this.state.block.size)}</h5>
                             </div>
                         </div>
