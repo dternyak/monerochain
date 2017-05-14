@@ -10,8 +10,6 @@ class Views extends Component {
     static propTypes = {}
 
     render() {
-
-
         return (
             <MainComponent />
         )
