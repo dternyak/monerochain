@@ -6,8 +6,6 @@ import {
     makeDataWithExcludedPropertiesAndFilterBasedOnProperties
 } from "utils/tableHelpers";
 import {Link} from "react-router";
-
-
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
@@ -29,8 +27,7 @@ export default class MemPoolComponent extends Component {
         if (nextState.mempool ? nextState.mempool.length === 0 : true) {
             nextState.columns = []
             nextState.data = []
-        }
-        else {
+        } else {
             const excludedFields = ["coinbase", "timestamp", "payment_id8",]
             const customRender = {
                 tx_size: {
@@ -103,21 +100,27 @@ export default class MemPoolComponent extends Component {
             <div className="column">
                 {
                     this.state.data.length > 0 ? <div>
-                        { this.state.totalMemPool > 10 ?
-                            <h5 style={{marginBottom: '2px '}}><b>MemPool (showing {this.state.data.length} of
-                                total {this.state.totalMempool})</b></h5> :
-
-                            <h5 style={{marginBottom: '2px '}}><b>MemPool ({this.state.data.length})</b></h5> }
+                        {
+                            this.state.totalMempool > 10 ?
+                                <h5 style={{marginBottom: '2px '}}>
+                                    <b>MemPool (showing {this.state.data.length} of
+                                        total {this.state.totalMempool})</b>
+                                </h5> :
+                                <h5 style={{marginBottom: '2px '}}>
+                                    <b>MemPool ({this.state.data.length})</b>
+                                </h5>
+                        }
                         <ReactTable
                             className='-striped -highlight'
                             showPagination={false}
-                            // defaultPageSize={5}
                             data={this.state.data}
                             columns={this.state.columns}
                             pageSize={this.state.data.length}
                         />
-                    </div> : <div><h5 style={{marginBottom: '2px '}}><b>MemPool ({this.state.data.length})</b></h5>
-
+                    </div> : <div>
+                        <h5 style={{marginBottom: '2px '}}>
+                            <b>MemPool ({this.state.data.length})</b>
+                        </h5>
                         <ReactTable
                             className='-striped -highlight'
                             showPagination={false}
